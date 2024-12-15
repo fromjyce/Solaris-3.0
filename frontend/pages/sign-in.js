@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Footer from '@/components/footer';
 import Head from 'next/head';
 import Link from 'next/link';
+import { TbInfoSquareRoundedFilled } from "react-icons/tb";
 
 export default function SignIn() {
   return (
@@ -38,11 +39,17 @@ export default function SignIn() {
               </div>
               <button
                 type="submit"
-                    className="w-full gabarito bg-[#3f8649ff] text-white py-2 rounded-lg hover:bg-[#52925b] transition"
+                className="w-full gabarito bg-[#3f8649ff] text-white py-2 rounded-lg hover:bg-[#52925b] transition"
               >
                 Sign In
               </button>
             </form>
+            <div className="mt-4 p-2 border-2 border-yellow-500 bg-[#fbf0ce] flex items-center space-x-2 rounded-lg">
+              <TbInfoSquareRoundedFilled className="text-yellow-500" size={45} />
+              <p className="text-sm text-gray-700 afacad">
+                This is a demo page. You can use <strong className='text-[#52925b]'>root@gmail.com</strong> and <strong className='text-[#52925b]'>root123#</strong> as credentials.
+              </p>
+            </div>
             <p className="text-gray-600 text-sm mt-4 gabarito">
               Don’t have an account?{' '}
               <Link href="/sign-up" className="text-[#3f8649ff] font-bold hover:underline hover:text-[#52925b]">
