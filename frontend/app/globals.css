@@ -19,3 +19,15 @@
     --foreground: #f4f4f4;
   }
 }
+
+.kumbhSans {
+  font: var(--font-kumbh-sans);
+}
+
+.gabarito {
+  font: var(--font-gabarito);
+}
+
+.afacad {
+  font: var(--font-afacad);
+}
