@@ -1,5 +1,23 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import {Kumbh_Sans, Gabarito, Afacad} from "next/font/google";
 import "./globals.css";
+
+const kumbhSans = Kumbh_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-kumbh-sans", 
+});
+
+const gabarito = Gabarito({
+  subsets: ["latin"],
+  weight: ["400", "700"], 
+  variable: "--font-gabarito",
+});
+
+const afacad = Afacad({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-afacad",
+});
 
 export const metadata = {
   title: "EcoSphere",
@@ -10,7 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className="antialiased"
+        className={`${kumbhSans.variable} ${gabarito.variable} ${afacad.variable} antialiased`}
       >
         {children}
       </body>
