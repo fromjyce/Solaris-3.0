@@ -21,13 +21,13 @@
 }
 
 .kumbhSans {
-  font: var(--font-kumbh-sans);
+  font-family: var(--font-kumbh-sans);
 }
 
 .gabarito {
-  font: var(--font-gabarito);
+  font-family: var(--font-gabarito);
 }
 
 .afacad {
-  font: var(--font-afacad);
+  font-family: var(--font-afacad);
 }
