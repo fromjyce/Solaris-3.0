@@ -1,10 +1,11 @@
+"use client";
 import React, { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
+import Layout from "@/components/layout";
 import { Chart as ChartJS } from 'chart.js/auto';
+import { Line } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2';
-import Footer from '@/components/footer';
 
-const MarketPage = () => {
+export default function MarketTrading() {
   const [marketData, setMarketData] = useState(null);
   const [userStats, setUserStats] = useState({
     energyConsumed: 0,
@@ -80,24 +81,8 @@ const MarketPage = () => {
   };
 
   return (
-    <div className="font-sans">
-      {/* Header */}
-      <header className="bg-white shadow-md sticky top-0 z-50">
-        <div className="container mx-auto flex justify-between items-center py-4 px-6">
-          <div className="flex items-center space-x-3">
-            <img src="/logo.png" alt="EcoSphere Logo" className="w-10 h-10" />
-            <h1 className="text-xl font-bold">EcoSphere</h1>
-          </div>
-          <nav className="flex space-x-6">
-            <a href="#home" className="text-gray-700 hover:text-green-600">Home</a>
-            <a href="#features" className="text-gray-700 hover:text-green-600">Features</a>
-            <a href="#how-it-works" className="text-gray-700 hover:text-green-600">How It Works</a>
-            <a href="#sign-in" className="text-gray-700 hover:text-green-600">Sign In</a>
-            <a href="#sign-up" className="text-gray-700 hover:text-green-600">Sign Up</a>
-          </nav>
-        </div>
-      </header>
-
+    <Layout>
+      <div className="font-sans">
       {/* Live Market Data Section */}
       <section className="py-20 bg-gray-100" id="market">
         <div className="container mx-auto px-6 text-center">
@@ -186,9 +171,7 @@ const MarketPage = () => {
           </div>
         </div>
       </section>
-        <Footer />
     </div>
+    </Layout>
   );
-};
-
-export default MarketPage;
+}
