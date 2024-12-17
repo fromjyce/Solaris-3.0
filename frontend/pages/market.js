@@ -154,8 +154,6 @@ export default function Marketplace() {
               </div>
             </div>
           </div>
-
-          {/* Project Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredRecs.map((rec, index) => (
               <div key={index} className="bg-[#f4f4f4] shadow-md rounded-lg p-6">
@@ -172,8 +170,6 @@ export default function Marketplace() {
               </div>
             ))}
           </div>
-
-          {/* Detailed Modal */}
           {isModalOpen && selectedRec && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
               <div className="bg-[#f4f4f4] rounded-lg p-6 w-96">
