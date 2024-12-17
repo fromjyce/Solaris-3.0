@@ -5,7 +5,7 @@ export default function ProfileSettings() {
         <form>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium gabarito text-[#072000ff]">Name</label>
+              <label className="block text-base font-medium gabarito text-[#072000ff]">Name</label>
               <input
                 type="text"
                 name="name"
@@ -14,7 +14,7 @@ export default function ProfileSettings() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium gabarito text-[#072000ff]">Email</label>
+              <label className="block text-base font-medium gabarito text-[#072000ff]">Email</label>
               <input
                 type="email"
                 name="email"
@@ -23,18 +23,18 @@ export default function ProfileSettings() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium gabarito text-[#072000ff]">Profile Photo</label>
+              <label className="block text-base font-medium gabarito text-[#072000ff]">Profile Photo</label>
               <input
                 type="file"
                 name="profile-photo"
                 accept="image/*"
-                className="mt-1 block w-full text-sm text-[#072000ff] gabarito file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-[#3f8649ff] file:text-white hover:file:bg-[#326b3a]"
+                className="mt-1 block w-full text-base text-[#072000ff] gabarito file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-[#3f8649ff] file:text-white hover:file:bg-[#326b3a]"
               />
             </div>
           </div>
           <button
             type="submit"
-            className="mt-6 px-6 py-2 bg-[#3f8649ff] gabarito  text-white rounded-md hover:bg-[#326b3a] transition duration-200"
+            className="mt-6 px-6 py-2 text-base bg-[#3f8649ff] gabarito  text-white rounded-md hover:bg-[#326b3a] transition duration-200"
           >
             Save Changes
           </button>
