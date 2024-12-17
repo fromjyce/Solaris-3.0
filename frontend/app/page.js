@@ -95,24 +95,31 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row lg:space-x-10">
             <div className="lg:w-1/3 mb-10 lg:mb-0 flex flex-col items-center text-center">
               <div className="flex justify-center items-center h-32 w-32 mb-4">
-                <Image src="/account.png" alt="Step 1" width={100} height={100} />
+                <Image src="/steps/account.png" alt="Step 1" width={100} height={100} />
               </div>
-              <h4 className="text-xl font-bold mb-2 gabarito">Create an Account</h4>
-              <p className='afacad'>Sign up and set up your profile for renewable energy trading and ownership.</p>
+              <h4 className="text-xl font-bold mb-2 gabarito">Register and Invest</h4>
+              <p className='afacad'>Start your journey towards clean energy ownership in just a few clicks!</p>
             </div>
             <div className="lg:w-1/3 mb-10 lg:mb-0 flex flex-col items-center text-center">
               <div className="flex justify-center items-center h-32 w-32 mb-4">
-                <Image src="/explore.png" alt="Step 2" width={100} height={100} />
+                <Image src="/steps/energy.png" alt="Step 2" width={100} height={100} />
               </div>
-              <h4 className="text-xl font-bold mb-2 gabarito">Explore Features</h4>
-              <p className='afacad'>Buy/sell RECs, invest in solar projects, and take part in sustainability challenges.</p>
+              <h4 className="text-xl font-bold mb-2 gabarito">Monitor Energy Generation</h4>
+              <p className='afacad'>Track real-time solar energy production and performance effortlessly.</p>
             </div>
             <div className="lg:w-1/3 flex flex-col items-center text-center">
               <div className="flex justify-center items-center h-32 w-32 mb-4">
-                <Image src="/coins.png" alt="Step 3" width={100} height={100} />
+                <Image src="/steps/trade.png" alt="Step 3" width={100} height={100} />
               </div>
-              <h4 className="text-xl font-bold mb-2 gabarito">Trade & Earn</h4>
-              <p className='afacad'>Start trading and earning through AI-driven pricing and blockchain technology.</p>
+              <h4 className="text-xl font-bold mb-2 gabarito">Trade Renewable Energy Credits (RECs)</h4>
+              <p className='afacad'>Buy, sell, or stake energy credits securely on a global marketplace.</p>
+            </div>
+            <div className="lg:w-1/3 flex flex-col items-center text-center">
+              <div className="flex justify-center items-center h-32 w-32 mb-4">
+                <Image src="/steps/coins.png" alt="Step 3" width={100} height={100} />
+              </div>
+              <h4 className="text-xl font-bold mb-2 gabarito">Earn Dividends and Rewards</h4>
+              <p className='afacad'>Reap financial benefits and sustainability rewards for every investment.</p>
             </div>
           </div>
         </div>
