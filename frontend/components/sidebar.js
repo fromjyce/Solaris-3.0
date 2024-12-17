@@ -10,7 +10,7 @@ export default function Sidebar() {
   const router = useRouter();
   const sidebarLinks = [
     { name: "Dashboard", href: "/dashboard", icon: <MdSpaceDashboard/> },
-    { name: "Marketplace", href: "/marketplace", icon: <FaStoreAlt/> },
+    { name: "Marketplace", href: "/market", icon: <FaStoreAlt/> },
     { name: "Wallet", href: "/wallet", icon: <FaWallet/> },
     { name: "Rewards", href: "/rewards", icon: <HiTrophy/> },
     { name: "Settings", href: "/settings", icon: <IoSettings/> },
