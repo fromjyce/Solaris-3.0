@@ -46,24 +46,45 @@ export default function Home() {
           <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center">
               <div className="flex justify-center items-center h-32 w-32 mb-4">
-                <Image src="/blockchain.png" alt="Feature 1" width={100} height={100} />
+                <Image src="/features/blockchain.png" alt="Feature 1" width={100} height={100} />
               </div>
               <h4 className="text-xl font-bold mb-2 gabarito">Blockchain-Based Energy Trading</h4>
-              <p className='afacad'>Decentralized, transparent, and tamper-proof trading of renewable energy credits.</p>
+              <p className='afacad'>Transparent, tamper-proof trading of renewable energy credits (RECs) powered by blockchain technology.</p>
             </div>
             <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center">
               <div className="flex justify-center items-center h-32 w-32 mb-4">
-                <Image src="/solar.png" alt="Feature 2" width={100} height={100} />
+                <Image src="/features/solar.png" alt="Feature 2" width={100} height={100} />
               </div>
               <h4 className="text-xl font-bold mb-2 gabarito">Fractional Solar Ownership</h4>
-              <p className='afacad'>Own fractions of solar projects as programmable NFTs and trade them easily.</p>
+              <p className='afacad'>Own fractions of renewable energy projects as tokenized assets for easy access and trading.</p>
             </div>
             <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center">
               <div className="flex justify-center items-center h-32 w-32 mb-4">
-                <Image src="/price.png" alt="Feature 3" width={100} height={100} />
+                <Image src="/features/price.png" alt="Feature 3" width={100} height={100} />
               </div>
               <h4 className="text-xl font-bold mb-2 gabarito">AI-Driven Dynamic Pricing</h4>
-              <p className='afacad'>AI optimizes energy trading by predicting peak generation and market demands.</p>
+              <p className='afacad'>Advanced AI algorithms ensure fair and optimized pricing for energy credits based on real-time market conditions.</p>
+            </div>
+            <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center">
+              <div className="flex justify-center items-center h-32 w-32 mb-4">
+                <Image src="/features/gamification.png" alt="Feature 4" width={100} height={100} />
+              </div>
+              <h4 className="text-xl font-bold mb-2 gabarito">Eco-Gamification Rewards</h4>
+              <p className='afacad'>Earn tokenized rewards for supporting eco-friendly practices like carbon offsetting and green project investments.</p>
+            </div>
+            <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center">
+              <div className="flex justify-center items-center h-32 w-32 mb-4">
+                <Image src="/features/border.png" alt="Feature 5" width={100} height={100} />
+              </div>
+              <h4 className="text-xl font-bold mb-2 gabarito">Cross-Border REC Exchange</h4>
+              <p className='afacad'>Seamless trading of renewable energy credits across borders, enabling global accessibility and participation.</p>
+            </div>
+            <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center">
+              <div className="flex justify-center items-center h-32 w-32 mb-4">
+                <Image src="/features/security.png" alt="Feature 6" width={100} height={100} />
+              </div>
+              <h4 className="text-xl font-bold mb-2 gabarito">Quantum-Resistant Security</h4>
+              <p className='afacad'>Future-proof transactions with lattice-based encryption to ensure data security in the post-quantum era.</p>
             </div>
           </div>
         </div>
