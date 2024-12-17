@@ -20,7 +20,7 @@ const afacad = Afacad({
 });
 
 export const metadata = {
-    title: "EcoSphere",
+    title: "Solaris 2.0",
     description:
         "A blockchain-powered decentralized marketplace for trading renewable energy credits (RECs) with AI-driven pricing, IoT verification, and gamified sustainability rewards.",
 };
