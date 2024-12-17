@@ -1,34 +1,50 @@
-// components/Sidebar.js
-import Link from 'next/link';
+import { useRouter } from "next/router";  
+import { MdSpaceDashboard } from "react-icons/md";
+import { FaStoreAlt, FaSignOutAlt } from "react-icons/fa";
+import { FaWallet } from "react-icons/fa6";
+import { HiTrophy } from "react-icons/hi2";
+import { IoSettings } from "react-icons/io5";
+import Link from "next/link";
 
-const Sidebar = () => {
+export default function Sidebar() {
+  const router = useRouter();
+  const sidebarLinks = [
+    { name: "Dashboard", href: "/dashboard", icon: <MdSpaceDashboard/> },
+    { name: "Marketplace", href: "/marketplace", icon: <FaStoreAlt/> },
+    { name: "Wallet", href: "/wallet", icon: <FaWallet/> },
+    { name: "Rewards", href: "/rewards", icon: <HiTrophy/> },
+    { name: "Settings", href: "/settings", icon: <IoSettings/> },
+  ];
+
   return (
-    <div className="w-64 bg-gray-800 text-white min-h-screen p-6">
-      <h2 className="text-2xl font-bold mb-6">Market Navigation</h2>
-      <ul className="space-y-4">
-        <li>
-          <Link href="#market">
-            <a className="hover:text-green-400">Live Market Data</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="#rec-trading">
-            <a className="hover:text-green-400">REC Trading</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="#dashboard">
-            <a className="hover:text-green-400">Energy Dashboard</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="#about">
-            <a className="hover:text-green-400">About</a>
-          </Link>
-        </li>
-      </ul>
+    <div className="w-64 min-h-screen bg-[#3f8649ff] text-white flex flex-col fixed top-0 left-0">
+      <div className="p-6 text-2xl font-bold border-b border-[#072000ff] kumbhSans">
+        <Link href="/" className="hover:text-[#072000ff]">Solaris 2.0</Link>
+      </div>
+      <nav className="flex-1 overflow-y-auto">
+        <ul>
+          {sidebarLinks.map((link) => (
+            <li
+              key={link.name}
+              className={`p-4 flex items-center gap-3  hover:bg-[#072000ff] gabarito text-xl ${
+                router.pathname === link.href ? "bg-[#072000ff]" : ""
+              }`}
+            >
+              {link.icon}
+              <Link href={link.href}>{link.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div className="p-4 border-t border-[#072000ff] gabarito text-xl hover:bg-[#072000ff]">
+        <Link href="/logout" className="flex items-center gap-3 ">
+          <FaSignOutAlt/>
+          Logout
+        </Link>
+      </div>
+      <div className="p-4 mt-auto text-md text-center afacad border-t border-[#072000ff]">
+        <p>Developed by <strong>Team Simpsons</strong> for <strong>I ❤️ Hackathon</strong></p>
+      </div>
     </div>
   );
-};
-
-export default Sidebar;
+}
