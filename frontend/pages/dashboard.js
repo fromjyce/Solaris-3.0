@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Layout from "@/components/layout";
-import Card from "@/components/card";
-import Table from "@/components/table";
+import Card from "@/components/dashboard/card";
+import Table from "@/components/dashboard/table";
 import Head from "next/head";
 
 export default function Dashboard() {
