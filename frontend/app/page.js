@@ -1,12 +1,28 @@
 import React from 'react';
 import Image from 'next/image';
-import Header from '@/components/header';
 import Footer from '@/components/footer';
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <div className="font-sans">
-      <Header />
+      <div>
+      <header className="bg-white shadow-md sticky top-0 z-50">
+        <div className="container mx-auto flex justify-between items-center py-2 px-4">
+          <div className="flex items-center space-x-3">
+            <Image src="/ecosphere_logo.png" alt="EcoSphere Logo" width={40} height={40} />
+            <h1 className="text-2xl font-bold kumbhSans text-[#239d12ff] hover:text-[#072000ff]">Solaris 2.0</h1>
+          </div>
+          <nav className="flex space-x-6 afacad font-bold text-lg text-[#072000ff]">
+            <a href="#home" className='hover:text-[#239d12ff]'>Home</a>
+            <a href="#features" className='hover:text-[#239d12ff]'>Features</a>
+            <a href="#how-it-works" className='hover:text-[#239d12ff]'>How It Works</a>
+            <Link href="/sign-in" className='hover:text-[#239d12ff]'>Sign In</Link>
+            <Link href="/sign-up" className='hover:text-[#239d12ff]'>Sign Up</Link>
+          </nav>
+        </div>
+      </header>
+    </div>
       <section id="home" className="bg-gradient-to-br from-green-500 to-blue-600 text-white py-8">
         <div className="container mx-auto text-center px-8">
           <h2 className="text-4xl font-bold mb-4 gabarito">Join the Green Revolution</h2>
