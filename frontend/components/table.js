@@ -11,7 +11,7 @@ export default function Table({ headings, rows }) {
           </thead>
           <tbody>
             {rows.map((row, index) => (
-              <tr key={index} className="border-b afacad hover:bg-gray-100">
+              <tr key={index} className="border-b afacad text-base hover:bg-gray-100">
                 {row.map((cell, cellIndex) => (
                   <td key={cellIndex} className="px-4 py-2">{cell}</td>
                 ))}
