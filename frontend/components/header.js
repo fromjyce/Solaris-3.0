@@ -8,7 +8,7 @@ export default function Header() {
         <div className="container mx-auto flex justify-between items-center py-2 px-4">
           <div className="flex items-center space-x-3">
             <Image src="/ecosphere_logo.png" alt="EcoSphere Logo" width={40} height={40} />
-            <h1 className="text-2xl font-bold kumbhSans text-[#239d12ff] hover:text-[#072000ff]">EcoSphere</h1>
+            <h1 className="text-2xl font-bold kumbhSans text-[#239d12ff] hover:text-[#072000ff]">Solaris 2.0</h1>
           </div>
           <nav className="flex space-x-6 afacad font-bold text-lg text-[#072000ff]">
             <a href="#home" className='hover:text-[#239d12ff]'>Home</a>
