@@ -15,7 +15,7 @@ export default function WalletSettings() {
             />
           </div>
           <button
-            className="mt-4 px-6 py-2 bg-[#3f8649ff] text-white rounded-md hover:bg-[#326b3a] transition duration-200"
+            className="mt-4 px-6 py-2 bg-[#3f8649ff] text-white rounded-md hover:bg-[#326b3a] gabarito text-base transition duration-200"
           >
             Change Wallet
           </button>
