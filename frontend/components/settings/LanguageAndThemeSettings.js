@@ -46,7 +46,7 @@ export default function LanguageAndThemeSettings() {
 
         <button
           type="submit"
-          className="mt-6 px-6 py-2 bg-[#3f8649ff] text-white rounded-md gabarito hover:bg-[#326b3a] transition duration-200"
+          className="mt-6 px-6 py-2 bg-[#3f8649ff] text-white rounded-md gabarito hover:bg-[#326b3a] text-base transition duration-200"
         >
           Save Settings
         </button>
