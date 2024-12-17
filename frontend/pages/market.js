@@ -1,177 +1,141 @@
-"use client";
-import React, { useState, useEffect } from 'react';
+import { useState } from "react";
+import Head from "next/head";
 import Layout from "@/components/layout";
-import { Chart as ChartJS } from 'chart.js/auto';
-import { Line } from 'react-chartjs-2';
-import { Pie } from 'react-chartjs-2';
 
-export default function MarketTrading() {
-  const [marketData, setMarketData] = useState(null);
-  const [userStats, setUserStats] = useState({
-    energyConsumed: 0,
-    energyGenerated: 0,
-    recBalance: 0,
-  });
+const recData = [
+  { name: "Solar Project A", location: "India", output: "500 kWh", price: 0.05 },
+  { name: "Solar Project B", location: "USA", output: "1000 kWh", price: 0.1 },
+  { name: "Solar Project C", location: "Germany", output: "200 kWh", price: 0.03 },
+  { name: "Solar Project D", location: "India", output: "800 kWh", price: 0.07 },
+  { name: "Solar Project E", location: "USA", output: "1500 kWh", price: 0.12 },
+];
 
-  // Generate random data for REC prices, token prices, and energy stats
-  const getRandomPrice = (min, max) => (Math.random() * (max - min) + min).toFixed(2);
-  const getRandomTrend = (length) => Array.from({ length }, () => getRandomPrice(45, 60));
-  const getRandomEnergyStats = () => ({
-    energyConsumed: Math.floor(Math.random() * 2000) + 500, // Between 500 and 2500 kWh
-    energyGenerated: Math.floor(Math.random() * 1000) + 100, // Between 100 and 1100 kWh
-    recBalance: Math.floor(Math.random() * 500) + 50, // Between 50 and 500 RECs
-  });
+export default function Marketplace() {
+  const [search, setSearch] = useState("");
+  const [selectedRegion, setSelectedRegion] = useState("");
+  const [selectedPriceRange, setSelectedPriceRange] = useState([0, 0.15]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedRec, setSelectedRec] = useState(null);
+  const [recAmount, setRecAmount] = useState(1);
 
-  useEffect(() => {
-    const fetchMarketData = () => {
-      setMarketData({
-        recPrice: getRandomPrice(45, 55), // Random price between 45 and 55
-        tokenPrice: getRandomPrice(8, 12), // Random price between 8 and 12
-        solarSharePrice: getRandomPrice(150, 250), // Random price between 150 and 250
-        recPriceTrend: getRandomTrend(12), // 12-month trend data
-      });
-
-      setUserStats(getRandomEnergyStats());
-    };
-
-    fetchMarketData();
-    const intervalId = setInterval(fetchMarketData, 10000); // Refresh every 10 seconds
-
-    return () => clearInterval(intervalId); // Cleanup interval on unmount
-  }, []);
-
-  // Line chart options for REC price trends
-  const chartOptions = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      tooltip: {
-        mode: 'index',
-        intersect: false,
-      },
-    },
-    scales: {
-      x: {
-        ticks: {
-          color: '#4b5563', // Tailwind gray color
-        },
-      },
-      y: {
-        beginAtZero: true,
-        ticks: {
-          color: '#4b5563',
-        },
-      },
-    },
+  const openTradeModal = (rec) => {
+    setSelectedRec(rec);
+    setIsModalOpen(true);
   };
 
-  // Pie chart for carbon offset investments
-  const pieChartData = {
-    labels: ['Solar Energy', 'Carbon Offsets', 'Other Investments'],
-    datasets: [
-      {
-        data: [Math.random() * 40 + 30, Math.random() * 40 + 30, Math.random() * 40 + 30],
-        backgroundColor: ['#f39c12', '#16a085', '#3498db'],
-        borderColor: ['#f39c12', '#16a085', '#3498db'],
-        borderWidth: 1,
-      },
-    ],
+  const closeTradeModal = () => {
+    setIsModalOpen(false);
+    setRecAmount(1);
   };
+
+  const filteredRecs = recData.filter(
+    (rec) =>
+      (search === "" || rec.name.toLowerCase().includes(search.toLowerCase())) &&
+      (selectedRegion === "" || rec.location === selectedRegion) &&
+      rec.price >= selectedPriceRange[0] &&
+      rec.price <= selectedPriceRange[1]
+  );
 
   return (
-    <Layout>
-      <div className="font-sans">
-      {/* Live Market Data Section */}
-      <section className="py-20 bg-gray-100" id="market">
-        <div className="container mx-auto px-6 text-center">
-          <h3 className="text-3xl font-bold mb-6">Live Market Data</h3>
-          {marketData ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-              {/* REC Pricing */}
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <h4 className="text-xl font-bold mb-2">REC Price</h4>
-                <p className="text-2xl text-green-600">${marketData.recPrice} per REC</p>
-                <Line
-                  data={{
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    datasets: [
-                      {
-                        label: 'REC Price Trend',
-                        data: marketData.recPriceTrend,
-                        fill: false,
-                        borderColor: '#34D399', // Tailwind green color
-                        tension: 0.1,
-                      },
-                    ],
-                  }}
-                  options={chartOptions}
-                />
-              </div>
-              {/* Tokenized Carbon Offsets */}
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <h4 className="text-xl font-bold mb-2">Tokenized Carbon Offsets</h4>
-                <p className="text-2xl text-blue-600">${marketData.tokenPrice} per token</p>
-              </div>
-              {/* Solar Project Share */}
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <h4 className="text-xl font-bold mb-2">Solar Project Share</h4>
-                <p className="text-2xl text-yellow-600">${marketData.solarSharePrice} per share</p>
-              </div>
-            </div>
-          ) : (
-            <p className="text-gray-700">Loading market data...</p>
-          )}
+    <>
+    <Head>
+    <title>Solaris 2.0 | Marketplace</title>
+    </Head>
+    <div className="flex min-h-screen bg-[#cfcbbdff]">
+      <Layout/>
+    <div className="container mx-auto p-8">
+      <h1 className="text-4xl font-bold mb-6 kumbhSans text-[#072000ff]">REC Marketplace</h1>
+      <div className="mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <input
+          type="text"
+          placeholder="Search projects by name"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="p-2 border rounded-md w-full sm:w-1/3 gabarito"
+        />
+         <div className="flex gap-8">
+        <div className="flex flex-col">
+          <label className="text-lg font-medium gabarito mb-2 text-[#072000ff]">Region</label>
+          <select
+            value={selectedRegion}
+            onChange={(e) => setSelectedRegion(e.target.value)}
+            className="p-3 border rounded-lg text-lg w-56 h-12 afacad text-[#072000ff]"
+          >
+            <option value="">All Regions</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="Germany">Germany</option>
+          </select>
         </div>
-      </section>
-
-      {/* REC Trading Section */}
-      <section className="py-20 bg-white" id="rec-trading">
-        <div className="container mx-auto px-6 text-center">
-          <h3 className="text-3xl font-bold mb-6">REC Trading</h3>
-          <div className="max-w-lg mx-auto space-y-4">
-            <div>
-              <p className="text-lg text-gray-700">Your REC Balance: {userStats.recBalance} RECs</p>
+        <div className="flex flex-col">
+          <label className="text-lg font-medium gabarito mb-2 text-[#072000ff]">Max Price (ETH)</label>
+          <input
+            type="range"
+            min="0"
+            max="0.15"
+            step="0.01"
+            value={selectedPriceRange[1]}
+            onChange={(e) => setSelectedPriceRange([0, e.target.value])}
+            className="w-64 h-4 accent-[#3f8649ff]"
+          />
+          <span className="gabarito text-lg text-[#072000ff] mt-2">{`0 ETH - ${selectedPriceRange[1]} ETH`}</span>
+        </div>
+      </div>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredRecs.map((rec, index) => (
+          <div key={index} className="bg-[#f4f4f4] shadow-md rounded-lg p-6">
+            <h3 className="text-xl mb-1 font-bold gabarito">{rec.name}</h3>
+            <p className="text-base text-gray-600 afacad">Location: {rec.location}</p>
+            <p className="text-base text-gray-600 afacad">Output: {rec.output}</p>
+            <p className="text-lg mt-1 font-semibold gabarito">Price: {rec.price} ETH</p>
+            <button
+              onClick={() => openTradeModal(rec)}
+              className="mt-4 gabarito bg-[#3f8649ff] hover:bg-[#326b3a] text-white p-2 rounded-md w-full"
+            >
+              Buy/Stake
+            </button>
+          </div>
+        ))}
+      </div>
+      {isModalOpen && selectedRec && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-[#f4f4f4] rounded-lg p-6 w-80">
+            <h3 className="text-xl font-bold mb-4 gabarito text-[#072000ff]">Purchase {selectedRec.name}</h3>
+            <label className="block text-sm font-medium mb-2 gabarito text-[#072000ff]">Number of RECs</label>
+            <input
+              type="number"
+              value={recAmount}
+              onChange={(e) => setRecAmount(e.target.value)}
+              className="w-full p-2 border rounded-md mb-4 afacad"
+              min="1"
+            />
+            <div className="flex justify-between mb-4">
+              <span className="font-medium gabarito text-[#072000ff]">Total Cost</span>
+              <span className="font-semibold text-[#072000ff] gabarito">
+                {(recAmount * selectedRec.price).toFixed(2)} ETH
+              </span>
             </div>
-            <div>
-              <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 w-full">
-                Buy RECs
-              </button>
-            </div>
-            <div>
-              <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 w-full">
-                Sell RECs
-              </button>
-            </div>
+            <button
+              onClick={() => {
+                alert(`Purchased ${recAmount} RECs from ${selectedRec.name}!`);
+                closeTradeModal();
+              }}
+              className="w-full bg-[#239d12ff] text-white p-2 rounded-md gabarito"
+            >
+              Confirm Purchase
+            </button>
+            <button
+              onClick={closeTradeModal}
+              className="w-full mt-4 bg-red-500 text-white p-2 rounded-md gabarito"
+            >
+              Cancel
+            </button>
           </div>
         </div>
-      </section>
-
-      {/* Energy Dashboard Section */}
-      <section className="py-20 bg-gray-100" id="dashboard">
-        <div className="container mx-auto px-6 text-center">
-          <h3 className="text-3xl font-bold mb-6">Energy Dashboard</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Energy Consumed */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h4 className="text-xl font-bold mb-2">Energy Consumed</h4>
-              <p className="text-2xl text-gray-700">{userStats.energyConsumed} kWh</p>
-            </div>
-            {/* Energy Generated */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h4 className="text-xl font-bold mb-2">Energy Generated</h4>
-              <p className="text-2xl text-gray-700">{userStats.energyGenerated} kWh</p>
-            </div>
-            {/* Carbon Offset Investments */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h4 className="text-xl font-bold mb-2">Carbon Offset Investments</h4>
-              <Pie data={pieChartData} options={{ responsive: true }} />
-            </div>
-          </div>
-        </div>
-      </section>
+      )}
     </div>
-    </Layout>
+    </div>
+    </>
   );
 }
