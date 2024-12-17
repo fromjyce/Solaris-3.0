@@ -46,7 +46,7 @@ export default function SignIn() {
             </form>
             <div className="mt-4 p-2 border-2 border-yellow-500 bg-[#fbf0ce] flex items-center space-x-2 rounded-lg">
               <TbInfoSquareRoundedFilled className="text-yellow-500" size={45} />
-              <p className="text-sm text-gray-700 afacad">
+              <p className="text-base text-gray-700 afacad">
                 This is a demo page. You can use <strong className='text-[#52925b]'>root@gmail.com</strong> and <strong className='text-[#52925b]'>root123#</strong> as credentials.
               </p>
             </div>
