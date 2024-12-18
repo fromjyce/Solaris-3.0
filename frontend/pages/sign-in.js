@@ -2,9 +2,28 @@ import Image from 'next/image';
 import Footer from '@/components/footer';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
+import { useAuth } from '@/context/useAuth';
+import { useRouter } from 'next/router';
 import { TbInfoSquareRoundedFilled } from "react-icons/tb";
 
 export default function SignIn() {
+  const { login } = useAuth();
+  const router = useRouter();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (login(email, password)) {
+      router.push('/dashboard');
+    } else {
+      setError('Invalid email or password');
+    }
+  };
+
   return (
     <>
       <Head>
@@ -18,12 +37,14 @@ export default function SignIn() {
                 Solaris 2.0
               </Link>
             </h2>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="email" className="block text-gray-700 afacad">Email</label>
                 <input
                   type="email"
                   id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="afacad w-full border border-gray-300 rounded-lg px-4 py-2 mt-1 focus:ring-2 focus:ring-[#3f8649ff] focus:outline-none"
                   placeholder="Enter your email"
                 />
@@ -33,10 +54,13 @@ export default function SignIn() {
                 <input
                   type="password"
                   id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="afacad w-full border border-gray-300 rounded-lg px-4 py-2 mt-1 focus:ring-2 focus:ring-[#3f8649ff] focus:outline-none"
                   placeholder="Enter your password"
                 />
               </div>
+              {error && <p className="text-red-500 text-sm">{error}</p>}
               <button
                 type="submit"
                 className="w-full gabarito bg-[#3f8649ff] text-white py-2 rounded-lg hover:bg-[#52925b] transition"
