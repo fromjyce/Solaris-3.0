@@ -3,8 +3,9 @@ import RewardsActions from "@/components/rewards/RewardsActions";
 import Leaderboard from "@/components/rewards/Leaderboard";
 import Layout from "@/components/layout";
 import Head from "next/head";
+import { withAuth } from "@/hocs/withAuth";
 
-export default function Rewards() {
+function Rewards() {
   return (
     <>
     <Head>
@@ -24,3 +25,5 @@ export default function Rewards() {
     </>
   );
 }
+
+export default withAuth(Rewards);

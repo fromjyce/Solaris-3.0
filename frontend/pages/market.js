@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import Layout from "@/components/layout";
+import { withAuth } from "@/hocs/withAuth";
 
 const recData = [
   {
@@ -82,7 +83,7 @@ const recData = [
   },
 ];
 
-export default function Marketplace() {
+function Marketplace() {
   const [search, setSearch] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
   const [selectedPriceRange, setSelectedPriceRange] = useState([0, 0.15]);
@@ -203,3 +204,5 @@ export default function Marketplace() {
     </>
   );
 }
+
+export default withAuth(Marketplace);

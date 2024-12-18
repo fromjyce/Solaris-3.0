@@ -4,8 +4,9 @@ import Layout from "@/components/layout";
 import Card from "@/components/dashboard/card";
 import Table from "@/components/dashboard/table";
 import Head from "next/head";
+import { withAuth } from "@/hocs/withAuth";
 
-export default function Dashboard() {
+function Dashboard() {
   const stats = [
     { title: "Total Investments", value: "$15,000" },
     { title: "Energy Credits Owned", value: "120 RECs" },
@@ -79,3 +80,5 @@ export default function Dashboard() {
     </>
   );
 }
+
+export default withAuth(Dashboard);

@@ -4,8 +4,9 @@ import NotificationPreferences from '@/components/settings/NotificationPreferenc
 import LanguageAndThemeSettings from '@/components/settings/LanguageAndThemeSettings';
 import Layout from "@/components/layout";
 import Head from "next/head";
+import { withAuth } from '@/hocs/withAuth';
 
-export default function Settings() {
+function Settings() {
   return (
     <>
     <Head>
@@ -26,3 +27,5 @@ export default function Settings() {
     </>
   );
 }
+
+export default withAuth(Settings);
