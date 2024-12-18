@@ -5,9 +5,12 @@ import { FaWallet } from "react-icons/fa6";
 import { HiTrophy } from "react-icons/hi2";
 import { IoSettings } from "react-icons/io5";
 import Link from "next/link";
+import { useAuth } from "@/context/useAuth";
 
 export default function Sidebar() {
   const router = useRouter();
+  const { logout } = useAuth();
+
   const sidebarLinks = [
     { name: "Dashboard", href: "/dashboard", icon: <MdSpaceDashboard/> },
     { name: "Marketplace", href: "/market", icon: <FaStoreAlt/> },
@@ -26,7 +29,7 @@ export default function Sidebar() {
           {sidebarLinks.map((link) => (
             <li
               key={link.name}
-              className={`p-4 flex items-center gap-3  hover:bg-[#072000ff] gabarito text-xl ${
+              className={`p-4 flex items-center gap-3 hover:bg-[#072000ff] gabarito text-xl ${
                 router.pathname === link.href ? "bg-[#072000ff]" : ""
               }`}
             >
@@ -36,14 +39,20 @@ export default function Sidebar() {
           ))}
         </ul>
       </nav>
-      <div className="p-4 border-t border-[#072000ff] gabarito text-xl hover:bg-[#072000ff]">
-        <Link href="/logout" className="flex items-center gap-3 ">
-          <FaSignOutAlt/>
+      <div
+        onClick={logout}
+        className="p-4 border-t border-[#072000ff] gabarito text-xl hover:bg-[#072000ff] cursor-pointer"
+      >
+        <div className="flex items-center gap-3">
+          <FaSignOutAlt />
           Logout
-        </Link>
+        </div>
       </div>
       <div className="p-4 mt-auto text-md text-center afacad border-t border-[#072000ff]">
-        <p>Developed by <strong>Team Simpsons</strong> for <strong>I ❤️ Hackathon</strong></p>
+        <p>
+          Developed by <strong>Team Simpsons</strong> for{" "}
+          <strong>I ❤️ Hackathon</strong>
+        </p>
       </div>
     </div>
   );
