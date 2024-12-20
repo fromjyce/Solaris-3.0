@@ -27,14 +27,14 @@ export default function SignIn() {
   return (
     <>
       <Head>
-        <title>Sign In | Solaris 2.0</title>
+        <title>Sign In | Solaris 3.0</title>
       </Head>
       <div className="h-screen flex items-center justify-center bg-gray-100">
         <div className="bg-white shadow-md rounded-lg flex w-3/4 lg:w-1/2">
           <div className="w-1/2 p-8">
             <h2 className="text-2xl font-bold mb-3 gabarito">Sign In to{" "}
               <Link href="/" className="text-[#3f8649ff] font-bold hover:underline hover:text-[#52925b]">
-                Solaris 2.0
+                Solaris 3.0
               </Link>
             </h2>
             <form className="space-y-4" onSubmit={handleSubmit}>
@@ -90,7 +90,7 @@ export default function SignIn() {
               className="mb-4"
               priority
             />
-            <h2 className="text-3xl font-bold kumbhSans">Solaris 2.0</h2>
+            <h2 className="text-3xl font-bold kumbhSans">Solaris 3.0</h2>
             <p className="text-center mt-4 gabarito">
               Join the green revolution and trade renewable energy credits with ease.
             </p>

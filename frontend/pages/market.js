@@ -112,7 +112,7 @@ function Marketplace() {
   return (
     <>
       <Head>
-        <title>Solaris 2.0 | Marketplace</title>
+        <title>Solaris 3.0 | Marketplace</title>
       </Head>
       <div className="flex min-h-screen bg-[#cfcbbdff]">
         <Layout />

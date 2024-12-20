@@ -35,7 +35,7 @@ function Dashboard() {
   return (
     <>
     <Head>
-    <title>Solaris 2.0 | Dashboard</title>
+    <title>Solaris 3.0 | Dashboard</title>
     </Head>
     <div className="flex min-h-screen bg-[#cfcbbdff]">
       <Layout />

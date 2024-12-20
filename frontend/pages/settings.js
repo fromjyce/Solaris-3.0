@@ -10,7 +10,7 @@ function Settings() {
   return (
     <>
     <Head>
-        <title>Solaris 2.0 | Settings</title>
+        <title>Solaris 3.0 | Settings</title>
     </Head>
     <div className="flex min-h-screen bg-[#cfcbbdff]">
         <Layout />

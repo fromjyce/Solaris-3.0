@@ -9,7 +9,7 @@ function Rewards() {
   return (
     <>
     <Head>
-        <title>Solaris 2.0 | Rewards</title>
+        <title>Solaris 3.0 | Rewards</title>
     </Head>
     <div className="flex min-h-screen bg-[#cfcbbdff]">
     <Layout />

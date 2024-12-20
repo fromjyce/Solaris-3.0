@@ -26,7 +26,7 @@ const Wallet = () => {
   return (
     <>
     <Head>
-        <title>Solaris 2.0 | Wallet</title>
+        <title>Solaris 3.0 | Wallet</title>
       </Head>
     <div className="flex min-h-screen bg-[#cfcbbdff]">
         <Layout/>

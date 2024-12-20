@@ -22,7 +22,7 @@ export default function Sidebar() {
   return (
     <div className="w-64 min-h-screen bg-[#3f8649ff] text-white flex flex-col fixed top-0 left-0">
       <div className="p-6 text-2xl font-bold border-b border-[#072000ff] kumbhSans">
-        <Link href="/" className="hover:text-[#072000ff]">Solaris 2.0</Link>
+        <Link href="/" className="hover:text-[#072000ff]">Solaris 3.0</Link>
       </div>
       <nav className="flex-1 overflow-y-auto">
         <ul>
