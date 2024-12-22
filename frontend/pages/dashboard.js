@@ -8,19 +8,37 @@ import Head from "next/head";
 import { withAuth } from "@/hocs/withAuth";
 
 function Dashboard() {
-  const [dashboardData, setDashboardData] = useState({
-    stats: [],
-    investments: { headings: [], rows: [] },
-    transactions: { headings: [], rows: [] },
-  });
+  const placeholderData = {
+    stats: [
+      { title: "Total Investments", value: "$0" },
+      { title: "Energy Credits Owned", value: "0 RECs" },
+      { title: "Dividends Earned", value: "$0" },
+      { title: "CO2 Offset", value: "0 kg" },
+    ],
+    investments: {
+      headings: ["Project", "Ownership %", "Dividends Earned"],
+      rows: [["No Data", "0%", "$0"]],
+    },
+    transactions: {
+      headings: ["Type", "Amount", "Date", "Status"],
+      rows: [["No Transactions", "$0", "-", "No Data"]],
+    },
+  };
 
+  const [dashboardData, setDashboardData] = useState(placeholderData);
   const [performancePeriod, setPerformancePeriod] = useState("Weekly");
 
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
         const response = await fetch("/api/dashboard");
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const data = await response.json();
+
         setDashboardData({
           stats: [
             { title: "Total Investments", value: data.stats.totalInvestments },
@@ -48,6 +66,7 @@ function Dashboard() {
         });
       } catch (error) {
         console.error("Error fetching dashboard data:", error);
+        setDashboardData(placeholderData);
       }
     };
 
