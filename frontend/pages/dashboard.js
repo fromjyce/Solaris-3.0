@@ -71,7 +71,7 @@ function Dashboard() {
     };
 
     fetchDashboardData();
-  }, []);
+  }, [placeholderData]);
 
   const { stats, investments, transactions } = dashboardData;
 
