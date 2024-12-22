@@ -3,6 +3,7 @@ import WalletCard from "@/components/wallet/WalletCard";
 import TransactionTable from "@/components/wallet/TransactionTable";
 import {connectWallet, getWalletBalance} from "utils/connectWallet";
 import Head from "next/head";
+import { withAuth } from "@/hocs/withAuth";
 import Layout from "@/components/layout";
 
 const Wallet = () => {
@@ -60,4 +61,4 @@ const Wallet = () => {
   );
 };
 
-export default Wallet;
+export default withAuth(Wallet);
