@@ -7,25 +7,25 @@ import Table from "@/components/dashboard/table";
 import Head from "next/head";
 import { withAuth } from "@/hocs/withAuth";
 
-function Dashboard() {
-  const placeholderData = {
-    stats: [
-      { title: "Total Investments", value: "$0" },
-      { title: "Energy Credits Owned", value: "0 RECs" },
-      { title: "Dividends Earned", value: "$0" },
-      { title: "CO2 Offset", value: "0 kg" },
-    ],
-    investments: {
-      headings: ["Project", "Ownership %", "Dividends Earned"],
-      rows: [["No Data", "0%", "$0"]],
-    },
-    transactions: {
-      headings: ["Type", "Amount", "Date", "Status"],
-      rows: [["No Transactions", "$0", "-", "No Data"]],
-    },
-  };
+const placeholderData = {
+  stats: [
+    { title: "Total Investments", value: "$0" },
+    { title: "Energy Credits Owned", value: "0 RECs" },
+    { title: "Dividends Earned", value: "$0" },
+    { title: "CO2 Offset", value: "0 kg" },
+  ],
+  investments: {
+    headings: ["Project", "Ownership %", "Dividends Earned"],
+    rows: [["No Data", "0%", "$0"]],
+  },
+  transactions: {
+    headings: ["Type", "Amount", "Date", "Status"],
+    rows: [["No Transactions", "$0", "-", "No Data"]],
+  },
+};
 
-  const [dashboardData, setDashboardData] = useState(placeholderData);
+function Dashboard() {
+   const [dashboardData, setDashboardData] = useState(placeholderData);
   const [performancePeriod, setPerformancePeriod] = useState("Weekly");
 
   useEffect(() => {
