@@ -6,6 +6,23 @@ import Layout from "@/components/layout";
 import Head from "next/head";
 import { withAuth } from "@/hocs/withAuth";
 
+const placeholderData = {
+  rewardsOverview: {
+    totalRewards: "200 Tokens",
+    carbonOffset: "150 kg",
+    achievements: ["First Trade", "Eco Warrior"],
+  },
+  actions: [
+    { id: 1, action: "Offset Carbon Footprint", reward: "50 Tokens" },
+    { id: 2, action: "Support Green Projects", reward: "100 Tokens" },
+  ],
+  leaderboard: [
+    { rank: 1, name: "Alice", rewards: "500 Tokens" },
+    { rank: 2, name: "Bob", rewards: "450 Tokens" },
+    { rank: 3, name: "Charlie", rewards: "400 Tokens" },
+  ],
+};
+
 function Rewards() {
   const [data, setData] = useState({
     rewardsOverview: null,
@@ -17,14 +34,20 @@ function Rewards() {
     const fetchRewardsData = async () => {
       try {
         const response = await fetch("/api/rewards");
-        const result = await response.json();
-        setData({
-          rewardsOverview: result.rewardsOverview,
-          actions: result.actions,
-          leaderboard: result.leaderboard,
-        });
+        if (response.ok) {
+          const result = await response.json();
+          setData({
+            rewardsOverview: result.rewardsOverview,
+            actions: result.actions,
+            leaderboard: result.leaderboard,
+          });
+        } else {
+          console.error("Error fetching rewards data, using placeholder");
+          setData(placeholderData);
+        }
       } catch (error) {
         console.error("Error fetching rewards data:", error);
+        setData(placeholderData);
       }
     };
 
