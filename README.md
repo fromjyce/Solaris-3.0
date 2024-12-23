@@ -65,7 +65,7 @@ To set up the Solaris 3.0 platform, ensure you have the following installed:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-organization/solaris-3.0.git
+   git clone https://github.com/fromjyce/Solaris-3.0.git solaris-3.0
    cd solaris-3.0
 2. **Install Frontend Dependencies**:
    ```bash
@@ -115,30 +115,18 @@ The platform will now be accessible at http://localhost:3000.
 
 ---
 
-## Contributing
+## Contact
 
-We welcome contributions to Solaris 3.0! To get started:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request for review.
-
-Please refer to [CONTRIBUTING.md](./CONTRIBUTING.md) for more details.
-
----
+If you come across any issues, have suggestions for improvement, or want to discuss further enhancements, feel free to contact me at [jaya2004kra@gmail.com](mailto:jaya2004kra@gmail.com). Your feedback is greatly appreciated.
 
 ## License
 
-Solaris 3.0 is licensed under the MIT License. See [LICENSE](./LICENSE) for more details.
+All the code and resources in this repository are licensed under the  GNU GENERAL PUBLIC LICENSE. You are free to use, modify, and distribute the code under the terms of this license. However, I do not take responsibility for the accuracy or reliability of the programs.
 
----
+## Social Profiles:
 
-## Acknowledgments
-
-- **Ethereum**: For decentralized transaction management.
-- **OpenAI**: For assisting with AI and blockchain integration strategies.
-- **Truffle Suite**: For the smart contract development framework.
-- **MongoDB**: For the backend data storage solution.
+[**LINKEDIN - Jayashre**](https://www.linkedin.com/in/jayashrek/)
+[**LINKEDIN - Nidhi Gummaraju**](https://www.linkedin.com/in/nidhigummaraju/)
 
    
 
