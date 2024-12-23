@@ -121,7 +121,7 @@ If you come across any issues, have suggestions for improvement, or want to disc
 
 ## License
 
-All the code and resources in this repository are licensed under the  GNU GENERAL PUBLIC LICENSE. You are free to use, modify, and distribute the code under the terms of this license. However, I do not take responsibility for the accuracy or reliability of the programs.
+All the code and resources in this repository are licensed under the MIT LICENSE. You are free to use, modify, and distribute the code under the terms of this license. However, I do not take responsibility for the accuracy or reliability of the programs.
 
 ## Social Profiles:
 
