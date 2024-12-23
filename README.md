@@ -125,7 +125,7 @@ All the code and resources in this repository are licensed under the MIT LICENSE
 
 ## Social Profiles:
 
-[**LINKEDIN - Jayashre**](https://www.linkedin.com/in/jayashrek/)
+[**LINKEDIN - Jayashre**](https://www.linkedin.com/in/jayashrek/) <br/>
 [**LINKEDIN - Nidhi Gummaraju**](https://www.linkedin.com/in/nidhigummaraju/)
 
    
