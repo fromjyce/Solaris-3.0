@@ -11,7 +11,7 @@ export default function NotificationPreferences({ notifications }) {
     <div className="bg-[#f4f4f4] shadow rounded-lg p-6 mb-8">
       <h2 className="text-2xl font-semibold mb-4 text-[#072000ff] kumbhSans">Notification Preferences</h2>
       <form>
-        <div className="space-y-4">
+        <div className="space-y-4 afacad text-xl">
           <div className="flex items-center">
             <input type="checkbox" checked={email} onChange={() => setEmail(!email)} />
             <label className="ml-2">Email Notifications</label>
