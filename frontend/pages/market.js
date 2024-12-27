@@ -2,6 +2,7 @@ import { useState } from "react";
 import Head from "next/head";
 import Layout from "@/components/layout";
 import { withAuth } from "@/hocs/withAuth";
+import { useWallet } from "@/context/walletContext";
 
 const recData = [
   {
@@ -14,7 +15,7 @@ const recData = [
     ownershipPercentage: 20,
     co2Savings: "500 kg",
     treesPlanted: 50,
-    receiverAddress: "0x0E9B75F9D253cCef031121854AF62f73E7C78022",
+    receiverAddress: "0x1234567890abcdef1234567890abcdef12345678",
   },
   {
     name: "Solar Project B",
@@ -126,14 +127,13 @@ const recData = [
   },
 ];
 
-
 function Marketplace() {
+  const { walletAddress } = useWallet();
   const [search, setSearch] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
   const [selectedPriceRange, setSelectedPriceRange] = useState([0, 0.15]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRec, setSelectedRec] = useState(null);
-  const [recAmount, setRecAmount] = useState(1);
 
   const openTradeModal = (rec) => {
     setSelectedRec(rec);
@@ -142,7 +142,41 @@ function Marketplace() {
 
   const closeTradeModal = () => {
     setIsModalOpen(false);
-    setRecAmount(1);
+  };
+
+  const handleTransaction = async () => {
+    if (!walletAddress) {
+      alert("Please connect your wallet first!");
+      return;
+    }
+
+    if (window.ethereum) {
+      try {
+        const confirmed = confirm(
+          `Are you sure you want to invest in ${selectedRec.name} for ${selectedRec.price} ETH?`
+        );
+        if (!confirmed) return;
+        const transactionParams = {
+          from: walletAddress, // Sender wallet
+          to: selectedRec.receiverAddress, // Receiver wallet
+          value: (selectedRec.price * 1e18).toString(16), // Convert ETH to Wei (hexadecimal format)
+        };
+
+        // Send transaction using MetaMask
+        await window.ethereum.request({
+          method: "eth_sendTransaction",
+          params: [transactionParams],
+        });
+
+        alert("Transaction successful! You have invested in the project.");
+        closeTradeModal();
+      } catch (error) {
+        console.error("Transaction failed:", error);
+        alert("Transaction failed. Please try again.");
+      }
+    } else {
+      alert("MetaMask is not installed. Please install it to proceed.");
+    }
   };
 
   const filteredRecs = recData.filter(
@@ -161,7 +195,9 @@ function Marketplace() {
       <div className="flex min-h-screen bg-[#cfcbbdff]">
         <Layout />
         <div className="container mx-auto p-8">
-          <h1 className="text-4xl font-bold mb-6 kumbhSans text-[#072000ff]">Renewable Energy Credits (RECs) Marketplace</h1>
+          <h1 className="text-4xl font-bold mb-6 kumbhSans text-[#072000ff]">
+            Renewable Energy Credits (RECs) Marketplace
+          </h1>
           <div className="mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <input
               type="text"
@@ -227,9 +263,8 @@ function Marketplace() {
                 <p className="text-base text-gray-600 afacad mb-2">
                   CO2 Saved: {selectedRec.co2Savings} | Trees Planted: {selectedRec.treesPlanted}
                 </p>
-
                 <button
-                  onClick={() => alert(`Invested in ${selectedRec.name}`)}
+                  onClick={handleTransaction}
                   className="w-full mt-4 bg-[#239d12ff] hover:bg-[#1d7c0dff] text-white p-2 rounded-md gabarito"
                 >
                   Invest Now
