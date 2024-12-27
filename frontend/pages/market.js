@@ -14,7 +14,7 @@ const recData = [
     ownershipPercentage: 20,
     co2Savings: "500 kg",
     treesPlanted: 50,
-    receiverAddress: "0x1234567890abcdef1234567890abcdef12345678",
+    receiverAddress: "0x0E9B75F9D253cCef031121854AF62f73E7C78022",
   },
   {
     name: "Solar Project B",
