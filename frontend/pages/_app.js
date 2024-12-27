@@ -1,6 +1,7 @@
 import "../app/globals.css"
 import { Kumbh_Sans, Gabarito, Afacad } from "next/font/google";
 import { AuthProvider } from '@/context/useAuth';
+import { WalletProvider } from "@/context/walletContext";
 
 const kumbhSans = Kumbh_Sans({
     subsets: ["latin"],
@@ -29,11 +30,13 @@ export const metadata = {
 function MyApp({ Component, pageProps }) {
     return (
         <div className={`${kumbhSans.variable} ${gabarito.variable} ${afacad.variable} antialiased`}>
+          <WalletProvider>
           <AuthProvider>
           <main>
             <Component {...pageProps} />
           </main>
           </AuthProvider>
+          </WalletProvider>
         </div>
       );
 }
