@@ -14,6 +14,7 @@ const recData = [
     ownershipPercentage: 20,
     co2Savings: "500 kg",
     treesPlanted: 50,
+    receiverAddress: "0x1234567890abcdef1234567890abcdef12345678",
   },
   {
     name: "Solar Project B",
@@ -25,6 +26,7 @@ const recData = [
     ownershipPercentage: 30,
     co2Savings: "1000 kg",
     treesPlanted: 120,
+    receiverAddress: "0xabcdef1234567890abcdef1234567890abcdef12",
   },
   {
     name: "Solar Project C",
@@ -36,6 +38,7 @@ const recData = [
     ownershipPercentage: 10,
     co2Savings: "200 kg",
     treesPlanted: 25,
+    receiverAddress: "0x7890abcdef1234567890abcdef1234567890abcd",
   },
   {
     name: "Desert Sun Initiative",
@@ -47,6 +50,7 @@ const recData = [
     ownershipPercentage: 40,
     co2Savings: "1500 kg",
     treesPlanted: 300,
+    receiverAddress: "0x4567890abcdef1234567890abcdef1234567890",
   },
   {
     name: "Mountain Peak Solar Grid",
@@ -58,6 +62,7 @@ const recData = [
     ownershipPercentage: 25,
     co2Savings: "800 kg",
     treesPlanted: 75,
+    receiverAddress: "0xabcdef7890abcdef1234567890abcdef12345678",
   },
   {
     name: "Coastal Wind & Solar Hub",
@@ -69,6 +74,7 @@ const recData = [
     ownershipPercentage: 35,
     co2Savings: "1100 kg",
     treesPlanted: 150,
+    receiverAddress: "0x123456abcdef7890abcdef1234567890abcdef12",
   },
   {
     name: "Urban Rooftop Revolution",
@@ -80,8 +86,46 @@ const recData = [
     ownershipPercentage: 15,
     co2Savings: "400 kg",
     treesPlanted: 60,
+    receiverAddress: "0x7890abcdef4561237890abcdef123456abcdef12",
+  },
+  {
+    name: "Desert Light Solar Fields",
+    location: "Egypt",
+    output: "1400 kWh",
+    price: 0.07,
+    description: "Expansive solar fields capturing the intense sunlight of the Sahara Desert.",
+    tokensAvailable: 250,
+    ownershipPercentage: 50,
+    co2Savings: "2000 kg",
+    treesPlanted: 350,
+    receiverAddress: "0x4567890abcdef78901234567890abcdef123456",
+  },
+  {
+    name: "Tundra Energy Array",
+    location: "Norway",
+    output: "600 kWh",
+    price: 0.05,
+    description: "An innovative solar array designed for low-sunlight regions in the Arctic Tundra.",
+    tokensAvailable: 110,
+    ownershipPercentage: 22,
+    co2Savings: "600 kg",
+    treesPlanted: 80,
+    receiverAddress: "0xabcdef1234567890abcdef4567890abcdef1234",
+  },
+  {
+    name: "River Delta Solar Grid",
+    location: "Vietnam",
+    output: "850 kWh",
+    price: 0.06,
+    description: "Sustainable energy solutions for communities along the Mekong River Delta.",
+    tokensAvailable: 140,
+    ownershipPercentage: 28,
+    co2Savings: "950 kg",
+    treesPlanted: 120,
+    receiverAddress: "0x1234567890abcdef1234567890abcdefabcdef12",
   },
 ];
+
 
 function Marketplace() {
   const [search, setSearch] = useState("");
